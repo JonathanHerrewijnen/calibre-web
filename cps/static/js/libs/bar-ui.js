@@ -1065,6 +1065,22 @@
 
       },
 
+      skipForward: function () {
+        
+        if (soundObject && soundObject.readyState) {
+          soundObject.setPosition(soundObject.position+10000);
+        }
+
+      },
+
+      skipBackwards: function () {
+        
+        if (soundObject && soundObject.readyState) {
+          soundObject.setPosition(soundObject.position-10000);
+        }
+
+      },
+
       resume: function () {
 
         if (soundObject && soundObject.readyState) {

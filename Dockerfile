@@ -16,7 +16,8 @@ RUN \
     libldap2-dev \
     libsasl2-dev \
     unzip \
-    python3-dev && \
+    python3-dev \
+    libnss3 && \
   echo "**** install runtime packages ****" && \
   apt-get install -y --no-install-recommends \
     imagemagick \

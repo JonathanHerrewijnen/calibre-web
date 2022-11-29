@@ -15,8 +15,8 @@ RUN \
     git \
     libldap2-dev \
     libsasl2-dev \
-    python3-dev && \
     unzip \
+    python3-dev && \
   echo "**** install runtime packages ****" && \
   apt-get install -y --no-install-recommends \
     imagemagick \
@@ -38,8 +38,9 @@ RUN \
   mkdir -p \
     /app/calibre-web && \
   unzip \
-    /tmp/calibre-web.zip -C \
-    /app/calibre-web --strip-components=1 && \
+    /tmp/calibre-web.zip -d \
+    /app && \
+  mv /app/calibre-web-features/* /app/calibre-web && \
   cd /app/calibre-web && \
   pip3 install --no-cache-dir -U \
     pip wheel && \
@@ -69,7 +70,7 @@ RUN \
     /root/.cache
     
 # add local files
-COPY root/ /
+# COPY root/ /
 
 # ports and volumes
 EXPOSE 8083

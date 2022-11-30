@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/calibre-web
+FROM ghcr.io/linuxserver/baseimage-ubuntu:jammy
 
 # set version label
 ARG BUILD_DATE
@@ -41,7 +41,7 @@ RUN \
   unzip \
     /tmp/calibre-web.zip -d \
     /app && \
-  mv /app/calibre-web-features/* /app/calibre-web && \
+  cp -r /app/calibre-web-features /app/calibre-web && rm -r /app/calibre-web-features && \
   cd /app/calibre-web && \
   pip3 install --no-cache-dir -U \
     pip wheel && \
